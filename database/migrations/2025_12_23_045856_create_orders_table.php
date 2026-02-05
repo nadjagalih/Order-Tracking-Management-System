@@ -15,20 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('order_code')->unique();
             $table->string('client_name');
-            $table->string('client_email');
+            $table->string('client_email')->nullable();
             $table->string('client_phone')->nullable();
             $table->string('service_type');
             $table->text('description');
             $table->enum('status', [
                 'draft', 
                 'in_progress', 
-                'review', 
-                'revision', 
+                'revision_1', 
+                'revision_2', 
                 'completed', 
                 'cancelled'
             ])->default('draft');
             $table->datetime('estimated_completion')->nullable();
-            $table->datetime('actual_completion')->nullable();
             $table->text('notes')->nullable();
             $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();

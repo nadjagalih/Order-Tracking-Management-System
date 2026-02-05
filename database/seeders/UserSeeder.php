@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         // Create Admin User
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@ordertrack.com',
-            'password' => Hash::make('password'),
+            'email' => 'admin@email.com',
+            'password' => Hash::make('password123'),
             'email_verified_at' => now(),
         ]);
 
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         ]);
 
         $this->command->info('✅ Users created successfully!');
-        $this->command->info('📧 Admin: admin@ordertrack.com | Password: password');
+        $this->command->info('📧 Admin: admin@email.com | Password: password123');
         $this->command->info('📧 Test: test@ordertrack.com | Password: password');
     }
 }

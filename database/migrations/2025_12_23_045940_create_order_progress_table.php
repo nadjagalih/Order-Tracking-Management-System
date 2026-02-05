@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->string('title');
             $table->text('description');
+            $table->json('files')->nullable();
             $table->string('status')->default('info'); // info, warning, success, danger
             $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
